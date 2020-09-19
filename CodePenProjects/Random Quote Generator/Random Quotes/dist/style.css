@@ -1,0 +1,11 @@
+.wrapper{
+  height: 100vh;
+}
+body{
+  background-color: pink;
+}
+.box{
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
