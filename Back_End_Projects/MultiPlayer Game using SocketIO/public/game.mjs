@@ -1,144 +1,110 @@
 import Player from './Player.mjs';
 import Collectible from './Collectible.mjs';
 import controls from './controls.mjs';
-import { generateStartPos, canvasCalcs } from './canvas-data.mjs';
-
+import { canstate, startingposition} from './canvas-data.mjs';
+let tick;
 const socket = io();
 const canvas = document.getElementById('game-window');
-const context = canvas.getContext('2d', { alpha: false });
+const ct = canvas.getContext('2d', { alpha: false });
+  ct.fillStyle = "black";
+  ct.fillRect(0,0,canstate.cw,canstate.ch);
+  let playerArray;
+  let item;
+  let endGame;
+  socket.on('init',({id,players,food})=>{
+    console.log(`${id} is connected`);
+    cancelAnimationFrame(tick);
 
-// Preload game assets
-const loadImage = src => {
-  const img = new Image();
-  img.src = src;
-  return img;
-}
+    const player = new Player({
+      x: startingposition(canstate.pfminx,canstate.pfmaxx,5),
+      y: startingposition(canstate.pfminy,canstate.pfmaxy,5),
+      id,
+      main: true
+    });
 
-const bronzeCoinArt = loadImage('./assets/bronze-coin.png');
-const silverCoinArt = loadImage('./assets/silver-coin.png');
-const goldCoinArt = loadImage('./assets/gold-coin.png');
-const mainPlayerArt = loadImage('./assets/main-player.png');
-const otherPlayerArt = loadImage('./assets/other-player.png');
-
-let tick;
-let currPlayers = [];
-let item;
-let endGame;
-
-socket.on('init', ({ id, players, coin }) => {
-  console.log(`Connected ${id}`);
-
-  // Cancel animation if one already exists and
-  // the page isn't refreshed, like if the server
-  // restarts
-  cancelAnimationFrame(tick);
-
-  // Create our player when we log on
-  const mainPlayer = new Player({ 
-    x: generateStartPos(canvasCalcs.playFieldMinX, canvasCalcs.playFieldMaxX, 5),
-    y: generateStartPos(canvasCalcs.playFieldMinY, canvasCalcs.playFieldMaxY, 5),
-    id, 
-    main: true 
-  });
-
-  controls(mainPlayer, socket);
-
-  // Send our player back to the server
-  socket.emit('new-player', mainPlayer);
-
-  // Add new player when someone logs on
-  socket.on('new-player', obj => {
-    // Check that player doesn't already exist
-    const playerIds = currPlayers.map(player => player.id);
-    if (!playerIds.includes(obj.id)) currPlayers.push(new Player(obj));
-  });
-
-  // Handle movement
-  socket.on('move-player', ({ id, dir, posObj }) => {
-    const movingPlayer = currPlayers.find(obj => obj.id === id);
-    movingPlayer.moveDir(dir);
+    controls(player,socket);
     
-    // Force sync in case of lag
-    movingPlayer.x = posObj.x;
-    movingPlayer.y = posObj.y;
+    socket.emit('new-player',player);
+
+    socket.on('new-player', obj => {
+      const objids = playerArray.map(p => p.id);
+      if(!objids.includes(obj.id)) playerArray.push(new Player(obj));
+    });
+
+    socket.on('move-player',({id,dir,posObj}) => {
+      const currplayer = playerArray.find(p=>p.id === id);
+      currplayer.moveDir(dir);
+
+      currplayer.x = posObj.x;
+      currplayer.y = posObj.y;
+    });
+    socket.on('stop-player',({id,dir,posObj}) => {
+      const stoper = playerArray.find(p=> p.id === id);
+      stoper.stopDir(dir);
+
+      stoper.x = posObj.x;
+      stoper.y = posObj.y;
+    });
+
+    socket.on('new-food', newfood =>{
+      item = new Collectible(newfood);
+    });
+
+    socket.on('remove-player',id=>{
+      console.log(`${id} disconnected`);
+      playerArray = playerArray.filter(p=> p.id !== id);
+    });
+
+    socket.on('end-game',res => endGame = res);
+
+    socket.on('update-player',obj =>{
+      const scorer = playerArray.find(p => p.id == obj.id);
+      scorer.score = obj.score;
+    });
+
+    playerArray = players.map(a => new Player(a)).concat(player);
+    item = new Collectible(food);
+    draw();
   });
-
-  socket.on('stop-player', ({ id, dir, posObj }) => {
-    const stoppingPlayer = currPlayers.find(obj => obj.id === id);
-    stoppingPlayer.stopDir(dir);
-
-    // Force sync in case of lag
-    stoppingPlayer.x = posObj.x;
-    stoppingPlayer.y = posObj.y;
-  });
-
-  // Handle new coin gen
-  socket.on('new-coin', newCoin => {
-    item = new Collectible(newCoin);
-  });
-
-  // Handle player disconnection
-  socket.on('remove-player', id => {
-    console.log(`${id} disconnected`);
-    currPlayers = currPlayers.filter(player => player.id !== id);
-  });
-
-  // Handle endGame state
-  socket.on('end-game', result => endGame = result);
-
-  // Update scoring player's score
-  socket.on('update-player', playerObj => {
-    const scoringPlayer = currPlayers.find(obj => obj.id === playerObj.id);
-    scoringPlayer.score = playerObj.score;
-  });
-
-  // Populate list of connected players and 
-  // create current coin when logging in
-  currPlayers = players.map(val => new Player(val)).concat(mainPlayer);
-  item = new Collectible(coin);
-
-  draw();
-});
-
-const draw = () => {
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  const draw = () => {
+    ct.clearRect(0, 0, canvas.width, canvas.height);
 
   // Set background color
-  context.fillStyle = '#220';
-  context.fillRect(0, 0, canvas.width, canvas.height);
+  ct.fillStyle = '#220';
+  ct.fillRect(0, 0, canvas.width, canvas.height);
 
   // Create border for play field
-  context.strokeStyle = 'white';
-  context.strokeRect(canvasCalcs.playFieldMinX, canvasCalcs.playFieldMinY, canvasCalcs.playFieldWidth, canvasCalcs.playFieldHeight);
+  ct.strokeStyle = 'white';
+  ct.strokeRect(canstate.pfminx, canstate.pfminy, canstate.pfw, canstate.pfh);
 
   // Controls text
-  context.fillStyle = 'white';
-  context.font = `13px 'Press Start 2P'`;
-  context.textAlign = 'center';
-  context.fillText('Controls: WASD', 100, 32.5);
+  ct.fillStyle = 'white';
+  ct.font = `13px 'Press Start 2P'`;
+  ct.textAlign = 'center';
+  ct.fillText('Controls: WASD', 100, 32.5);
 
   // Game title
-  context.font = `16px 'Press Start 2P'`;
-  context.fillText('Coin Race', canvasCalcs.canvasWidth / 2, 32.5);
+  ct.font = `16px 'Press Start 2P'`;
+  ct.fillText('Eat food', canstate.cw / 2, 32.5);
 
   // Calculate score and draw players each frame
-  currPlayers.forEach(player => {
-    player.draw(context, item, { mainPlayerArt, otherPlayerArt }, currPlayers);
+  playerArray.forEach(player => {
+    player.draw(ct, item, playerArray);
   });
 
-  // Draw current coin
-  item.draw(context, { bronzeCoinArt, silverCoinArt, goldCoinArt });
+  // Draw current food
+  item.draw(ct);
 
-  // Remove destroyed coin
-  if (item.destroyed) {
-    socket.emit('destroy-item', { playerId: item.destroyed, coinValue: item.value, coinId: item.id });
+  // Remove eaten food
+  if (item.eaten) {
+    socket.emit('eaten', {playerId:item.eaten,foodId: item.id });
   }
 
   if (endGame) {
-    context.fillStyle = 'white';
-    context.font = `13px 'Press Start 2P'`
-    context.fillText(`You ${endGame}! Restart and try again.`, canvasCalcs.canvasWidth / 2, 80);
+    ct.fillStyle = 'white';
+    ct.font = `13px 'Press Start 2P'`
+    ct.fillText(`You ${endGame}! Restart and try again.`, canstate.cw / 2, 80);
   }
 
   if (!endGame) tick = requestAnimationFrame(draw);
-}
+  }
