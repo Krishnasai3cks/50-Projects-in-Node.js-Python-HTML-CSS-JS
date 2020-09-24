@@ -1,0 +1,52 @@
+
+const def = `
+# header
+## header 2
+**welcome here**
+[link](freecodecamp.org)
+> block of text
+this is come code \`<div></div>\`
+you can also have multilined code
+\`\`\`
+class happybirthday{
+console.log("today is no-one's birthday");
+}
+\`\`\`
+there are lists
+- one
+- two
+Now images
+![react logo](https://techchronos.com/wp-content/uploads/SszarkLabs/stack-icon/cywBkaGwkMeDAuJbSt1k.png)
+`;
+// a list item, a blockquote, an image, and bolded text
+class App extends React.Component {
+   state = {
+      text: def
+   }
+   handleChange = (e) => { 
+      this.setState({
+         text: e.target.value
+      })
+   }
+   render(){ 
+      const {text} = this.state;
+      const markdown = marked(text, { breaks: true });
+      console.log(markdown);
+      return (
+         <div>
+            <h1 className="text-center">Convert your markup here!</h1>
+            <div className = "row">
+               <div className = "col-6">
+                  <h5 className="text-center">convert your text here</h5>
+                  <textarea className="form-control" id="editor" value={text} onChange={this.handleChange} />
+               </div>
+               <div className = "col-6">
+                  <h5 className="text-center"> See your markup here </h5>
+                  <div className="preview rounded" id="preview" dangerouslySetInnerHTML={{__html: markdown}} />
+               </div>
+            </div>
+         </div> 
+      ); 
+   }
+}
+ReactDOM.render(<App/>,document.getElementById('app'));
