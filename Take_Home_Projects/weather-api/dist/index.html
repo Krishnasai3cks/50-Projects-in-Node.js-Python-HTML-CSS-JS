@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Weather API</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="container">
+  <div id="contents">
+    <div id="title">
+      Krishna's Weather APP
+    </div>
+    <div id="weather">
+      <p style='font-size: 30px;'>Place: <span id="place"></span></p>
+      <p style='font-size: 35px;'>Temperature: <span id="degree"></span><span id="units" style="color:rgba(200,200,100);cursor:pointer;">°C</span></p>
+      <p style='font-size: 25px;'>Weather: <span id="temptype"></span><p>
+      <img style='width: 90px;' id='icon'></img>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-Geolocation/1.0.50/jquery.geolocation.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/geolocator/2.1.5/geolocator.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fontawesome-iconpicker/3.2.0/js/fontawesome-iconpicker.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
