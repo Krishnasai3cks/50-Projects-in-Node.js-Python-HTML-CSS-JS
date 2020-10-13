@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <div id="searchbox">
+            <h2>Search for any image by clicking here</h2>
+            <form id="form">
+                <input type="text"
+                id="inputbox" required>
+                <input type="number"
+                id="offset" placeholder="Enter no of books(optional)">
+
+                <input type="button" value="submit">
+            </form>
+            <h4>
+                You can also search for an image by using <br>
+                <code>/api/imagesearch/{searchterm}?offset=10</code>
+                <h5>Here offset is the no of results you wish to see.</h5>
+            </h4>
+        </div>
+        <hr/>
+        <div id="imagessearch">
+            Click here to view the recently search images 😉
+            <form id='secondForm'>
+                <input type="button" value="submit">
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('load',()=>{
+            var formThing = document.getElementById('form');
+            var secondForm = document.getElementById('secondForm');
+            formThing.addEventListener('submit',()=>{
+                console.log("happy birthday to you ")
+                var inputbox = document.getElementById('inputbox').value;
+                var offsetvalue = document.getElementById('offset').value;
+                var offset = (offsetvalue) ? offsetvalue: 10;
+                formThing.action = "/api/imagesearch/"+inputbox+"?offset="+offsetvalue;
+            });
+            secondForm.addEventListener('submit',()=>{
+                console.log("happy birthday");
+            })
+        })
+    </script>
+
+
+</body>
+</html>
