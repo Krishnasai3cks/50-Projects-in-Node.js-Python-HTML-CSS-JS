@@ -1,52 +1,48 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta name="description" content="A cool thing made with HyperDev" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <div id="searchbox">
-            <h2>Search for any image by clicking here</h2>
-            <form id="form">
-                <input type="text"
-                id="inputbox" required>
-                <input type="number"
-                id="offset" placeholder="Enter no of books(optional)">
-
-                <input type="button" value="submit">
-            </form>
-            <h4>
-                You can also search for an image by using <br>
-                <code>/api/imagesearch/{searchterm}?offset=10</code>
-                <h5>Here offset is the no of results you wish to see.</h5>
-            </h4>
-        </div>
-        <hr/>
-        <div id="imagessearch">
-            Click here to view the recently search images 😉
-            <form id='secondForm'>
-                <input type="button" value="submit">
-            </form>
-        </div>
+      <h3>
+        Searching for new images was done from official freecodecamp heroku app <a href="https://imgsearch-fcc.herokuapp.com/api/imgSearch">https://imgsearch-fcc.herokuapp.com/api/imgSearch</a>
+      </h3>
+      <div id="searchbox">
+        <h2>Search for any image by clicking here</h2>
+        <input type="text" id="inputbox" />
+        <input type="number" id="offset" />
+        <a href="javascript:void(0);" id="firstAnchorTag">click</a>
+        <h4>
+          You can also search for an image by using <br />
+          <code>/api/imagesearch/{searchterm}?offset=10</code>
+          <h5>Here offset is the no of results you wish to see.</h5>
+        </h4>
+      </div>
+      <hr />
+      <div id="imagessearch">
+        Click here to view the recently search images 😉
+        <a href="./api/imagesearch" id="secondtag">Click here to search for the recent images</a>
+      </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        document.addEventListener('load',()=>{
-            var formThing = document.getElementById('form');
-            var secondForm = document.getElementById('secondForm');
-            formThing.addEventListener('submit',()=>{
-                console.log("happy birthday to you ")
-                var inputbox = document.getElementById('inputbox').value;
-                var offsetvalue = document.getElementById('offset').value;
-                var offset = (offsetvalue) ? offsetvalue: 10;
-                formThing.action = "/api/imagesearch/"+inputbox+"?offset="+offsetvalue;
-            });
-            secondForm.addEventListener('submit',()=>{
-                console.log("happy birthday");
-            })
-        })
+      var inputbox = document.getElementById("inputbox");
+      var offset = document.getElementById("offset");
+      firstAnchorTag.addEventListener("click", () => {
+        console.log("I am here");
+        if (inputbox.value) {
+                    firstAnchorTag.target = '_blank';
+
+          var redirectLink = `./api/imagesearch/${inputbox.value}?offset=${offset.value}`;
+          firstAnchorTag.href = redirectLink;
+        } else {
+          alert("You cannot perform an empty search");
+        }
+      });
     </script>
-
-
-</body>
+  </body>
 </html>
