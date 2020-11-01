@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(200, 200, 200, 0.6);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-div {
+    background-color: rgba(200, 200, 200, 0.9);
+    color: black;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+hr {
+    margin-top: 10px;
+}
+
+#submit {
+    color: white;
+    background-color: #AE0000;
+}
+
+input {
+    background-color: #00FFFF;
+}
+
+select {
+    background-color: #00FFFF;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

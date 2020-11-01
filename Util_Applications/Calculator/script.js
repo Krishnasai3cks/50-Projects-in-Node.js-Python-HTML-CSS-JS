@@ -90,6 +90,7 @@ class App extends React.Component{
         <div className = "clicknums">
           <button className="click clickAC" id="clear" onClick={this.handleClick}> AC </button>
           <button className="click clickdel" id="delete" onClick={this.handleClick}>D</button>
+          <div class="horirow"></div>
           {nums.map(but => (
               <button class="click clicknum" id={numids[but]} onClick={this.handleClick}> {but}</button>
           ))}

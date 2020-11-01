@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    position: absolute;
+    margin-top: 325px;
+}
+
+li {
+    margin-left: 20px;
+}
+
+#outer-container {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.food {
+    background-color: green;
+    color: skyblue;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+}
+
+.MainFood {
+    background-color: green;
+    color: skyblue;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+}
+
+#winner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: orange;
+}
+
+.absolute {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+}
+
+.final-box {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: blueviolet;
+}
+
+#container {
+    position: absolute;
+    width: 600px;
+    height: 1200px;
+    background-color: black;
+    display: block;
+    border: 2px solid white;
+}
+
+#player {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    left: 30px;
+    top: 30px;
+}

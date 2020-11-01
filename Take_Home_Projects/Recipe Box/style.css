@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 200, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 200, 0.5);
+}
+
+::-webkit-input-placeholder {
+    color: rgba(231, 225, 225, 0.5);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: tomato;
+}
+
+.del {
+    color: rgb(180, 143, 143);
+    background: rgba(226, 0, 0, 0.5);
+}
+
+.edit {
+    color: rgb(200, 200, 200);
+    background: rgba(123, 216, 36, 0.65);
+}
+
+.del:hover,
+.edit:hover {
+    border: 2px solid white;
+}
+
+.del,
+.edit {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    height: 80%;
+}
+
+.text {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: rgba(252, 99, 72, 0.7);
+}
+
+.submit {
+    background: olive;
+    color: white;
+    font-size: large;
+    width: 85px;
+    height: 40px;
+}
+
+.submit:hover {
+    border: 2px solid white;
+}
+
+#editbutton,
+#newbutton {
+    width: 40px;
+    height: 40px;
+    color: white;
+    background-color: red;
+}
+
+#editbutton:hover {
+    border: 3px solid white;
+}
+
+#newbutton:hover {
+    border: 3px solid white;
+}
+
+.recipePopUp {
+    width: 80%;
+    height: 580px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 5;
+    border-radius: 10%;
+    background: rgba(238, 130, 238, 0.95) !important;
+}
+
+form {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#heading {
+    color: rgb(243, 212, 76);
+}
+
+#recipeList {
+    width: 70%;
+    height: 100px;
+    border: 2px solid black;
+    background-color: rgb(255, 136, 0);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.innerlist {
+    width: 100%;
+    border: 1px solid white;
+}
+
+ul,
+ol {
+    margin-left: 40px;
+}
+
+.secondinnerlist {
+    background-color: #481324;
+    height: 100%;
+    color: white;
+    border-radius: 2%;
+    border-radius: 10%;
+    overflow: hidden;
+    border: 2px solid violet;
+}
+
+#endsecondinner {
+    width: 100%;
+    background: rgba(0, 255, 0, 0.5) !important;
+    height: 40px;
+    background-color: tomato;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newRecipe {
+    width: 25%;
+    text-align: center;
+    background-color: rgb(69, 199, 69);
+    color: white;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 100%;
+}
+
+#newRecipe:hover {
+    border: 2px solid white;
+}
+
+#ulwrapper {
+    height: 320px;
+    overflow-y: scroll;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: blueviolet;
+    text-align: center;
+    border-bottom: 2px solid red;
+}
+
+#recipeh1 {
+    text-align: center;
+}
+
+.dark,
+.light {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+}
+
+.dark:hover,
+.light:hover {
+    border: 2px solid green;
+    color: rgb(210, 210, 210);
+}
+
+.dark {
+    background-color: rgba(214, 166, 43, 0.6);
+    color: white;
+}
+
+.light {
+    background-color: black;
+    color: white;
+}
+
+#container {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    font-family: 'Courgette', cursive;
+}
+
+#recipeProcess {
+    width: 80%;
+    height: 400px;
+    margin-top: 4vh;
+    border-radius: 2%;
+    text-align: left;
+    background-color: tomato;
+}

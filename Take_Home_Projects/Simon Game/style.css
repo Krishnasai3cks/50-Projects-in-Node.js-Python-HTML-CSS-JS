@@ -1,0 +1,193 @@
+/*
+font-family: 'Sansita Swashed', cursive;
+*/
+
+
+/*
+font-family: 'Lemonada', cursive;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.starepstr {
+    height: 30px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.starepstr:hover {
+    border: 3px solid gray;
+    color: rgb(211, 185, 185);
+}
+
+#offgame {
+    height: 30px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#offgame:hover {
+    opacity: 0.6;
+    border: none;
+}
+
+body {
+    background: rgb(231, 106, 106);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#mainbox {
+    width: 500px;
+    user-select: none;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 1px 1px black;
+}
+
+.boxes {
+    width: 50%;
+    height: 50%;
+    border: 8px solid black;
+}
+
+#box1:hover {
+    background-color: darkred;
+}
+
+#box2:hover {
+    background-color: darkblue;
+}
+
+#box3:hover {
+    background-color: rgb(180, 180, 25);
+}
+
+#box4:hover {
+    background-color: darkgreen;
+}
+
+#yaay {
+    width: 65vw;
+    height: 65vw;
+    position: absolute;
+    background-color: rgba(200, 200, 100, 0.9);
+    border: 2px solid white;
+    border-radius: 10%;
+    z-index: 40;
+    cursor: cell;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contentbox {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    z-index: 10;
+    border: 7px solid black;
+    border-radius: 100%;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#box1 {
+    background-color: red;
+    border-top-left-radius: 100%;
+    border-right: none;
+}
+
+#box2 {
+    border-bottom: none;
+    background-color: blue;
+    border-top-right-radius: 100%;
+}
+
+#box3 {
+    border-top: none;
+    border-right: none;
+    background-color: rgb(233, 233, 50);
+    border-bottom-left-radius: 100%;
+}
+
+#box4 {
+    background-color: green;
+    border-bottom-right-radius: 100%;
+}
+
+.textslide {
+    background: rgb(30, 27, 22);
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#countstring {
+    background: rgb(30, 27, 22);
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    vertical-align: text-bottom;
+    color: white;
+    font-family: 'Lemonada', cursive;
+}
+
+.hide {
+    color: rgb(243, 231, 231);
+    font-family: 'Lemonada', cursive;
+    font-size: 2.5rem;
+    background: rgb(30, 27, 22);
+    overflow: hidden;
+}
+
+.hide span {
+    transform: translateY(100%);
+    display: inline-block;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Sansita Swashed', cursive;
+    color: rgb(247, 247, 247);
+}

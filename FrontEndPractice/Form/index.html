@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id='main-div'>
+        <h2> Fill your details below </h2>
+        <h3 id="description">Thanks for your precious time.</h3>
+        <hr height="20px">
+        <form id="survey-form">
+
+            <label for="name" id="name-label">Name: </label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+
+            <hr>
+            <label id="email-label" for="email">Email: </label>
+            <input type="email" required id="email" placeholder="Enter your email" />
+
+            <hr>
+            <label id="number-label" for="number">Age: </label>
+            <input type="number" id="number" placeholder="Enter age" min="10" max="125" />
+            <hr>
+
+
+            <label for="dropdown" id="dropdown-label">Select: </label>
+            <select id="dropdown" placeholder="abc">
+          <option> select from options</option>
+          <option> a</option>
+          <option> b</option>
+          <option> c</option>
+      </select>
+
+            <hr>
+            <table style="border:1px solid black;">
+                <label>Where are you from?</label>
+                <tr>
+                    <td>europe</td>
+                    <td>america</td>
+                    <td>asia</td>
+                    <td>africa</td>
+                </tr>
+                <tr style="border:2px solid black;">
+                    <td> <input type="radio" value="opt1" name="radio" />
+                    </td>
+                    <td> <input value="opt2" type="radio" name="radio" /></label>
+                    </td>
+                    <td> <input type="radio" value="opt3" name="radio" /></label>
+                    </td>
+                    <td> <input type="radio" value=" opt4" name="radio" /></label>
+                    </td>
+                </tr>
+            </table>
+
+            <hr>
+            <div id="checkbox-group">
+                <label>What products would you like to buy</label>
+                <div id="checklabel">
+                    <table style="border:1px solid black;width:100%">
+                        <tr>
+                            <td>Shirt</td>
+                            <td>Football </td>
+                            <td>Shoes</td>
+                            <td>Goodies</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" value="yes" /></td>
+                            <td><input type="checkbox" value="no" /></td>
+                            <td><input type="checkbox" value="no" /></td>
+                            <td><input type="checkbox" value="no" /></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <hr>
+
+            <div>
+                <div id="textareadiv">
+                    <textarea placeholder=" happy birthday"></textarea>
+                    <button id="submit" value="submit">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>

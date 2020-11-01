@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#handleWin,
+#handleDraw {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 60%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 350px;
+    background: rgba(150, 160, 120, 0.3);
+    border-radius: 10%;
+    box-shadow: 0 0px 5px 0.01px black;
+}
+
+#OnWhenPlaying {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.centredivs {
+    max-width: 80%;
+    width: 80%;
+    height: 80%;
+    background: rgba(150, 100, 125, 0.2);
+    border-radius: 10%;
+    box-shadow: inset 0 0 10px rgba(225, 225, 255, 0.7);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.middledivs {
+    max-height: 50%;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.deepestdivs {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    max-width: 80%;
+}
+
+
+/* first div css*/
+
+#start {
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.firstheadings {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgb(225, 225, 225);
+    width: 155px;
+    cursor: pointer;
+    text-align: center;
+    text-justify: center;
+}
+
+.firstheadings:hover {
+    box-shadow: 0px 0px 5px black;
+}
+
+
+/* above: first div css */
+
+
+/* second div css */
+
+#mainXOROdiv {
+    border: 0.8px solid rgba(0, 0, 0, 0.7);
+}
+
+.xoro {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 60px;
+    color: rgba(100, 100, 100, 0.7);
+    cursor: pointer;
+}
+
+.xoro:hover {
+    font-size: 66px;
+    color: rgba(100, 100, 100, 0.9)
+}
+
+
+/* above: 2nd div css */
+
+
+/* third div css */
+
+#playAreaMain {
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#innerplayarea {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.boxes {
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 5px rgba(100, 100, 100, 0.4);
+    margin: 0;
+    width: 33.2%;
+    height: 32.8%;
+    font-size: 5rem;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* above: 3rd div css */
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(100, 100, 100, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#horirow {
+    width: 100%;
+}

@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px 0.1px white;
+}
+
+.box:hover {
+    opacity: 0.8;
+}
+
+#container {
+    width: 800px;
+    height: 800px;
+    background-color: rgb(9, 9, 54);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#innercontainer {
+    width: 90%;
+    height: 90%;
+    background-color: rgb(19, 19, 75);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.black {
+    background-image: radial-gradient(black, white, black, black, white, black);
+}
+
+.yellow {
+    background-image: radial-gradient(rgba(241, 241, 100, 0.5), white, rgba(241, 241, 100, 0.5), rgba(241, 241, 100, 0.5), white, rgba(241, 241, 100, 0.5));
+}
+
+.red {
+    background-image: radial-gradient( rgba(235, 118, 118, 0.5), white, rgba(235, 118, 118, 0.5), rgba(235, 118, 118, 0.5), white, rgba(235, 118, 118, 0.5));
+}
+
+.blue {
+    background-image: radial-gradient( rgba(104, 104, 205, 0.5), white, rgba(104, 104, 205, 0.5), rgba(104, 104, 205, 0.5), white, rgba(104, 104, 205, 0.5));
+}
+
+.orange {
+    background-image: radial-gradient( rgba(205, 171, 108, 0.5), white, rgba(205, 171, 108, 0.5), rgba(205, 171, 108, 0.5), white, rgba(205, 171, 108, 0.5));
+}
+
+.pink {
+    background-image: radial-gradient( rgba(211, 105, 122, 0.5), white, rgba(211, 105, 122, 0.5), rgba(211, 105, 122, 0.5), white, rgba(211, 105, 122, 0.5));
+}
+
+.violet {
+    background-image: radial-gradient(rgba(215, 101, 215, 0.5), white, rgba(215, 101, 215, 0.5), rgba(215, 101, 215, 0.5), white, rgba(215, 101, 215, 0.5));
+}
+
+.gray {
+    background-image: radial-gradient(rgba(201, 127, 127, 0.5), white, rgba(201, 127, 127, 0.5), rgba(201, 127, 127, 0.5), white, rgba(201, 127, 127, 0.5));
+}
