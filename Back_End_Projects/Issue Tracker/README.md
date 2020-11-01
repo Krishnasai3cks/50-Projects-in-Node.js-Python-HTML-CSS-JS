@@ -1,6 +1,8 @@
 **FreeCodeCamp**- Information Security and Quality Assurance
 ------
-[![Run on Repl.it](https://repl.it/badge/github/freeCodeCamp/boilerplate-project-issuetracker)](https://repl.it/github/freeCodeCamp/boilerplate-project-issuetracker)
+[![glitch](https://glitch.com/edit/#!/rhetorical-hurricane-rugby?previewSize=100&attributionHidden=true&sidebarCollapsed=false&path=README.md&previewFirst=false)]
+
+
 Project Issue Tracker
 
 1) SET NODE_ENV to `test` without quotes and set DB to your mongo connection string in .env file
