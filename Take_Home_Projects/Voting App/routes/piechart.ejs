@@ -1,0 +1,39 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<style>
+    #canvas {
+        max-width: 400px;
+        max-height: 400px;
+    }
+</style>
+<form action="/yourvote">
+    <select name="chosenValue">
+        <% data.labels.forEach(label=>{ %>
+            <option><%=label%></option>
+        <%})%>
+        <% if(session['username']){%>
+                <label>Or... Create your own option </label>
+                <label for="text"></label>
+                <input type="text" id="text" name="title" />
+        <%}%>
+    </select>
+    <input type="submit" value="submit" />
+</form>
+
+<div id="stringTemplate" style="display:none">
+    <%= JSON.stringify(data) %>
+</div>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script>
+    let ctx = document.querySelector('#canvas').getContext('2d');
+    let data = (JSON.parse((document.getElementById('stringTemplate').innerText)));
+    let myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                backgroundColor: data.colors,
+                data: data.dataArray,
+            }]
+        }
+    });
+</script>

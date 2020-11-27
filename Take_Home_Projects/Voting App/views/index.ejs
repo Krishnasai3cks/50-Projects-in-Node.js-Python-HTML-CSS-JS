@@ -1,0 +1,41 @@
+<a href="/">Home</a>
+<% if(session['username']){%>
+
+    <a href="/newpoll">New Poll</a>
+    <a href="/allpolls">Your Polls</a> Welcome
+    <a target="_blank" href="https://twitter.com/<%= session['username'] %>">
+        <%=session['displayName'] %>
+    </a>
+
+    <a href="/logout">Sign Out</a>
+    <%} else {%>
+        <a href="/auth/twitter/callback">Login with twitter!</a>
+
+        <%}%>
+            <% if(typeof foo == 'string'){%>
+                <%- foo %>
+                    <%} else {%>
+                        <ul id="unorderedList">
+                            <% foo.forEach((data)=>{%>
+                                <a href="/polls?id=<%= data._id %>">
+
+                                    <h4>
+                                        <%= data.title%>
+                                    </h4>
+                                    <li id="<%= data._id %>">
+                                        <p>
+                                            <% Object.keys(data.votesObject).forEach(key=>{%>
+                                                <%=key%>
+                                                    <%}) %>
+                                        </p>
+                                </a>
+                                </li>
+
+                                <%});%>
+
+                                    <%if(foo[0].hasOwnProperty('piechart')){%>
+                                        <%- include('../routes/piechart.ejs',{ data: foo[0].piechart})%>
+                                            <%}%>
+                        </ul>
+                        <% } %>
+                            <canvas id="myCanvas "></canvas>
