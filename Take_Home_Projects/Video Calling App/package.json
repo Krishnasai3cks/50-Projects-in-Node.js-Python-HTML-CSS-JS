@@ -1,0 +1,39 @@
+{
+    "name": "video_calling_app",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Krishnasai3cks/Video-Calling-App.git"
+    },
+    "keywords": [
+        "video",
+        "calling",
+        "freecodecamp",
+        "socket"
+    ],
+    "author": "krishna sai cholkar",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Krishnasai3cks/Video-Calling-App/issues"
+    },
+    "homepage": "https://github.com/Krishnasai3cks/Video-Calling-App#readme",
+    "dependencies": {
+        "ejs": "^3.1.5",
+        "event-stream": "^4.0.1",
+        "express": "^4.17.1",
+        "http": "0.0.1-security",
+        "jquery": "^3.5.1",
+        "nodemon": "^2.0.6",
+        "socket.io": "^3.0.4",
+        "socket.io-stream": "^0.9.1",
+        "stream": "0.0.2",
+        "util": "^0.12.3",
+        "uuid": "^8.3.2"
+    }
+}
