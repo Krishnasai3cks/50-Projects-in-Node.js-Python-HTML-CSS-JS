@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conway's Game of Life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-shadow: border-box;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #leftPart {
+            order: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="leftPart">
+        <h1 id="generation">Generation:0</h1>
+        <select name="choose" id="choose" onchange="changePattern(this)">
+            <option>choose</option>
+            <option>glider</option>
+            <option>pulsar</option>
+            <option>crazyCorners</option>
+            <option>firstGenPulsar</option>
+            <option>maxdensitybutstill</option>
+            <option>pentadecathlon</option>
+        </select>
+        <button onclick="startStop()">Start/Stop/Resume</button>
+        <button onclick="randomize()">randomize</button>
+        <button onclick="clearBoard()">Clear Board</button>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+    <script src="patterns.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
