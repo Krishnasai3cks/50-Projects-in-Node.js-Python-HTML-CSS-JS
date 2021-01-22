@@ -1,0 +1,6 @@
+[submodule "Submod"]
+	url = https://github.com/krishnasai3cks/ProjectsInFreeCodeCamp.git
+	branch = Development
+[submodule "Take_Home_Projects\\Book"]
+	path = Take_Home_Projects\\Book
+	url = https://github.com/Krishnasai3cks/Book-Trading-Club.git
