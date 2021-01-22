@@ -4,3 +4,6 @@
 [submodule "Take_Home_Projects\\Book"]
 	path = Take_Home_Projects\\Book
 	url = https://github.com/Krishnasai3cks/Book-Trading-Club.git
+[submodule "Take_Home_Projects\\Book_Trading_Club"]
+	path = Take_Home_Projects\\Book_Trading_Club
+	url = https://github.com/Krishnasai3cks/Book-Trading-Club.git
